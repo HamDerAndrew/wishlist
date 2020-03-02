@@ -1,0 +1,20 @@
+import React, { Component } from 'react';
+import Wish from '../Wish/Wish';
+
+class List extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+    }
+
+    render() { 
+        return ( 
+            <ul>
+                <Wish wish={this.props.wish} deleteWish={this.props.deleteWish} />
+            </ul>
+         );
+    }
+}
+ 
+export default List;
