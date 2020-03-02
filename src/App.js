@@ -3,10 +3,12 @@ import 'bulma/css/bulma.css';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import List from './components/List/List';
+import Modal from './components/Modal/Modal';
 import Footer from './components/Footer/Footer';
 
 class App extends Component {
   state = {
+    toggleModal: false,
     wishes: [
       {wish: 'T-shirt, str. L'},
       {wish: 'Playstation 4'},
@@ -16,7 +18,14 @@ class App extends Component {
 
   deleteWish = (id) => {
     console.log("clicked " + id)
-}
+  }
+
+ toggleMod = () => {
+  this.setState(prevState => ({
+    toggleModal: !this.state.toggleModal
+  }));
+ }
+
 
   render() {
     return(
@@ -26,6 +35,8 @@ class App extends Component {
         <h2 className="title is-3">Velkommen til din ønskeliste!</h2>
       </header>
       <List wish={this.state.wishes} deleteWish={() => this.deleteWish()}/>
+      <Modal active={this.state.toggleModal ? 'is-active' : ''} closeModal={this.toggleMod} />
+      <button onClick={this.toggleMod} className="button is-success">Tilføj ønske</button>
       <Footer />
     </div>
     );
