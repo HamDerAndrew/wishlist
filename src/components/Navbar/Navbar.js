@@ -35,7 +35,11 @@ class Navbar extends Component {
                     <div className="navbar-start">
                         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid*/}
                         <a className="navbar-item">
-                            Home
+                            Hjem
+                        </a>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid*/}
+                        <a className="navbar-item">
+                            Om WishList
                         </a>
                     </div>
                 </div>

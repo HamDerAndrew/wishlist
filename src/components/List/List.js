@@ -11,7 +11,11 @@ class List extends Component {
     render() { 
         return ( 
             <ul>
-                <Wish wish={this.props.wish} deleteWish={this.props.deleteWish} />
+                {
+                    this.props.wishes.map( (wish, index) => (
+                        <Wish key={index} wish={wish} deleteWish={this.props.deleteWish}/>
+                    ))
+                }
             </ul>
          );
     }

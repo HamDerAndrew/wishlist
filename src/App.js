@@ -10,14 +10,15 @@ class App extends Component {
   state = {
     toggleModal: false,
     wishes: [
-      {wish: 'T-shirt, str. L'},
-      {wish: 'Playstation 4'},
-      {wish: 'Skjorter str. L'}
+      {id: 1, item: 'T-shirt, str. L'},
+      {id: 2, item: 'Playstation 4'},
+      {id: 7, item: 'Skjorter str. L'},
+      {id: 4, item: 'Ripped Jeans str. L'}
    ]
   }
 
-  deleteWish = (id) => {
-    console.log("clicked " + id)
+  deleteWish = (wishId) => {
+    console.log("clicked " + wishId)
   }
 
  toggleMod = () => {
@@ -34,7 +35,7 @@ class App extends Component {
       <header className="App-header">
         <h2 className="title is-3">Velkommen til din ønskeliste!</h2>
       </header>
-      <List wish={this.state.wishes} deleteWish={() => this.deleteWish()}/>
+      <List wishes={this.state.wishes} deleteWish={this.deleteWish}/>
       <Modal active={this.state.toggleModal ? 'is-active' : ''} closeModal={this.toggleMod} />
       <button onClick={this.toggleMod} className="button is-success">Tilføj ønske</button>
       <Footer />
