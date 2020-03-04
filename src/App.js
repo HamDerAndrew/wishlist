@@ -17,8 +17,17 @@ class App extends Component {
    ]
   }
 
+  // Delete wish
   deleteWish = (wishId) => {
     console.log("clicked " + wishId)
+    this.setState({
+      wishes: [...this.state.wishes.filter(wish => wish.id !== wishId)]
+    });
+  }
+
+  // Add wish
+  addWish = () => {
+
   }
 
  toggleMod = () => {
@@ -36,7 +45,7 @@ class App extends Component {
         <h2 className="title is-3">Velkommen til din ønskeliste!</h2>
       </header>
       <List wishes={this.state.wishes} deleteWish={this.deleteWish}/>
-      <Modal active={this.state.toggleModal ? 'is-active' : ''} closeModal={this.toggleMod} />
+      <Modal wish={"hello"} active={this.state.toggleModal ? 'is-active' : ''} closeModal={this.toggleMod} />
       <button onClick={this.toggleMod} className="button is-success">Tilføj ønske</button>
       <Footer />
     </div>

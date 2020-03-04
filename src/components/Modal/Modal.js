@@ -14,18 +14,18 @@ return(
                 <div className="field">
                     <label className="label" htmlFor="ønske">Ønske</label>
                     <div className="control">
-                        <input className="input" type="text" placeholder="Ønske..." />
+                        <input className="input" type="text" name="ønske" placeholder="Ønske..." value={props.wish} />
                     </div>
                 </div>
                 <div className="field">
                     <label className="label" htmlFor="link">Evt. link</label>
                     <div className="control">
-                        <input className="input" type="text" placeholder="Link..." />
+                        <input className="input" type="text" placeholder="Link..." input={props.wishLink}/>
                     </div>
                 </div>
             </section>
             <footer className="modal-card-foot">
-            <button onClick={props.addWish} className="button is-success">Tilføj</button>
+            <button type="submit" onClick={props.addWish} className="button is-success">Tilføj</button>
             </footer>
         </div>
     </div>
