@@ -12,8 +12,8 @@ class List extends Component {
         return ( 
             <ul>
                 {
-                    this.props.wishes.map( (wish, index) => (
-                        <Wish key={index} wish={wish} deleteWish={this.props.deleteWish}/>
+                    this.props.wishes.map( (wish) => (
+                        <Wish key={wish.id} wish={wish} deleteWish={this.props.deleteWish}/>
                     ))
                 }
             </ul>

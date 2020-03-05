@@ -5,15 +5,16 @@ import Navbar from './components/Navbar/Navbar';
 import List from './components/List/List';
 import Modal from './components/Modal/Modal';
 import Footer from './components/Footer/Footer';
+import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
   state = {
     toggleModal: false,
     wishes: [
-      {id: 1, item: 'T-shirt, str. L', url: ''},
-      {id: 2, item: 'Playstation 4', url: ''},
-      {id: 7, item: 'Skjorter str. L', url: ''},
-      {id: 4, item: 'Ripped Jeans str. L',  url: ''}
+      {id: uuidv4(), item: 'T-shirt, str. L', url: ''},
+      {id: uuidv4(), item: 'Playstation 4', url: ''},
+      {id: uuidv4(), item: 'Skjorter str. L', url: ''},
+      {id: uuidv4(), item: 'Ripped Jeans str. L',  url: ''}
    ]
   }
 
@@ -29,7 +30,7 @@ class App extends Component {
     const newWish = {
       item: theWish,
       url: theUrl,
-      id: 8
+      id: uuidv4()
     }
     
     this.setState({
