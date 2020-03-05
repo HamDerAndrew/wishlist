@@ -10,24 +10,34 @@ class App extends Component {
   state = {
     toggleModal: false,
     wishes: [
-      {id: 1, item: 'T-shirt, str. L'},
-      {id: 2, item: 'Playstation 4'},
-      {id: 7, item: 'Skjorter str. L'},
-      {id: 4, item: 'Ripped Jeans str. L'}
+      {id: 1, item: 'T-shirt, str. L', url: ''},
+      {id: 2, item: 'Playstation 4', url: ''},
+      {id: 7, item: 'Skjorter str. L', url: ''},
+      {id: 4, item: 'Ripped Jeans str. L',  url: ''}
    ]
   }
 
   // Delete wish
   deleteWish = (wishId) => {
-    console.log("clicked " + wishId)
     this.setState({
       wishes: [...this.state.wishes.filter(wish => wish.id !== wishId)]
     });
   }
 
   // Add wish
-  addWish = () => {
-
+  addWish = (theWish, theUrl) => {
+    const newWish = {
+      item: theWish,
+      url: theUrl,
+      id: 8
+    }
+    
+    this.setState({
+      toggleModal: false,
+      wishes: [
+        ...this.state.wishes, newWish
+      ]
+    })
   }
 
  toggleMod = () => {
@@ -45,7 +55,7 @@ class App extends Component {
         <h2 className="title is-3">Velkommen til din ønskeliste!</h2>
       </header>
       <List wishes={this.state.wishes} deleteWish={this.deleteWish}/>
-      <Modal wish={"hello"} active={this.state.toggleModal ? 'is-active' : ''} closeModal={this.toggleMod} />
+      <Modal addWish={this.addWish} active={this.state.toggleModal ? 'is-active' : ''} closeModal={this.toggleMod} />
       <button onClick={this.toggleMod} className="button is-success">Tilføj ønske</button>
       <Footer />
     </div>
